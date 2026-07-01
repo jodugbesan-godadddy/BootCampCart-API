@@ -2,7 +2,7 @@ from .test_heartbeat import TestClient
 from .test_exercises import EXAMPLE_CART_ITEM
 
 CARTITEMS_PATH = "/v1/cartitems"
-CARTITEM_PATH = "/v1/cartitem/{item_id}"
+CARTITEM_PATH = "/v1/cartitems/{item_id}"
 
 
 class Exercise3(TestClient):
