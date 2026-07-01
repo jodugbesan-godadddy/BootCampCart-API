@@ -4,19 +4,25 @@ import falcon
 from swagger_ui import falcon_api_doc
 from cart_api.routes.heartbeat import Heartbeat
 from cart_api.routes.products import Product, Products
+from cart_api.routes.cartitems import CartItem, CartItems
 
 
+    
 # Instantiate RESTful API and resources
 api = falcon.App(cors_enable=True)
 api.req_options.strip_url_path_trailing_slash = True
 hb = Heartbeat()
 product = Product()
+cart_item = CartItem()
+cart_items = CartItems()
 products = Products()
 
 # Define our API's routes
 api.add_route("/heartbeat", hb)
 api.add_route("/v1/products/{product_id:int}", product)
 api.add_route("/v1/products", products)
+api.add_route("/v1/cart-items/{cart_item_id:int}", cart_item)
+api.add_route("/v1/cart-items", cart_items)
 
 # Add a route which serves our OpenAPI specification
 falcon_api_doc(
