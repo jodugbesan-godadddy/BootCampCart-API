@@ -89,6 +89,14 @@ class DatabaseProducts(BaseModel):
 # if neccesary, update EXAMPLE_CART_ITEM in cart_api_tests/test_exercises.py to match
 
 
+class DatabaseCartItem(BaseModel):
+    id = AutoField(primary_key=True)
+    product_id = CharField()
+    quantity = DoubleField()
+    is_gift = BooleanField(default=False)
+
+
+
 # BOOTCAMPERS: Don't modify anything below
 ALL_MODELS = [
     c_type
